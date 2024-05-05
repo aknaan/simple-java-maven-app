@@ -32,4 +32,6 @@ jobs:
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
     - name: push to docker hub
       run: docker push aknaan/maven-demo:${{steps.bump.outputs.version}}
-
+      
+    - name: deployment
+      run: docker run aknaan/maven-demo:${{steps.bump.outputs.version}}
